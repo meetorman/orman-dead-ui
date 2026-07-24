@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "resolveJsonModule": true,
+    // Pin react types to this package's copy: the link:'d @orman/design package
+    // otherwise resolves its own @types/react, and the two copies' unique symbols
+    // (VoidOrUndefinedOnly) are nominally incompatible.
+    "baseUrl": ".",
+    "paths": {
+      "react": ["./node_modules/@types/react"],
+      "react/*": ["./node_modules/@types/react/*"],
+      "react-dom": ["./node_modules/@types/react-dom"],
+      "react-dom/*": ["./node_modules/@types/react-dom/*"]
+    }
+  },
+  "include": ["src"]
+}

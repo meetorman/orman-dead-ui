@@ -1,0 +1,10 @@
+/* Injected by Playwright ONLY while taking parity screenshots — on BOTH the
+   proof and the app, identically. Never shipped.
+   Purpose: pin the fixed rails onto their own compositor layer. Chromium's
+   promotion heuristic for position:fixed depends on paint history, which made
+   the rail rasterize bistably (two stable states, chosen by load order).
+   Forcing promotion at shot time collapses both targets to one state. */
+.archive-rail,
+.folio-rail {
+  will-change: transform;
+}

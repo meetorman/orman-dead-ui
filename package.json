@@ -1,0 +1,29 @@
+{
+  "name": "orman-design-workspace",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @orman/folio dev",
+    "build": "pnpm --filter @orman/folio build",
+    "preview": "pnpm --filter @orman/folio preview",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "pnpm -r typecheck && tsc -p .",
+    "contracts": "node tools/check-contracts.mjs",
+    "parity": "PARITY_TARGET=app playwright test tests/parity --project=parity-1440 --project=parity-1920 --project=parity-390",
+    "parity:motion": "PARITY_TARGET=app playwright test tests/parity --project=parity-motion",
+    "parity:capture": "PARITY_TARGET=proof playwright test tests/parity --update-snapshots",
+    "smoke": "playwright test tests/smoke --project=smoke",
+    "test": "pnpm smoke && pnpm parity"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@playwright/test": "1.61.1",
+    "@types/node": "^26.1.1",
+    "typescript": "^5.9.0"
+  }
+}

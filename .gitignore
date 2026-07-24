@@ -1,0 +1,9 @@
+node_modules/
+dist/
+test-results/
+.contracts-out/
+# goldens are heavyweight regenerable binaries; only meta.json is committed
+tests/goldens/*
+!tests/goldens/meta.json
+# media is served by orman-dead-api; local symlink for proof capture only
+data/
