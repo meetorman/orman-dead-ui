@@ -1,6 +1,5 @@
 import {
   CutawayPlate,
-  DeadStory,
   FactDrawers,
   MeasuredRoom,
   MuseumHeading,
@@ -10,6 +9,7 @@ import {
   ShowLedger,
   useJourney,
   useJourneyReveals,
+  VenueStory,
   VenueStoryOpening,
   VenueTimeline,
 } from '@orman/design';
@@ -88,7 +88,7 @@ function VenueRecordView({ data }: { data: VenueRecord }) {
       case 'deadStory':
         return (
           data.deadStory && (
-            <DeadStory
+            <VenueStory
               key={key}
               id="dead-at-barton"
               titleId="dead-story-title"
